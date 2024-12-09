@@ -35,7 +35,7 @@ namespace goodbyed_get_course
 
 			pathToBat =
 				pathToBat.Substring(0, pathToBat.LastIndexOf("goodbyed_get_coure_v on Git Hab")) +
-				"goodbyed_get_coure_v on Git Hab";
+				"goodbyed_get_coure_v on Git Hab\\PYBNCD\\BNCD1";
 
 
 			Console.WriteLine("Local path: " + pathToBat);
