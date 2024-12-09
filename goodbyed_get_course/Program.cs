@@ -31,7 +31,13 @@ namespace goodbyed_get_course
 			pathToBat = Environment.CurrentDirectory;
 			Console.WriteLine("Original path: " + pathToBat);
 
-			pathToBat = pathToBat.Replace("goodbyed_get_course\\bin\\Debug\\net8.0", "PYBNCD\\BNCD1");
+			//pathToBat = pathToBat.Replace("goodbyed_get_course\\bin\\Debug\\net8.0", "PYBNCD\\BNCD1");
+
+			pathToBat =
+				pathToBat.Substring(0, pathToBat.LastIndexOf("goodbyed_get_coure_v on Git Hab")) +
+				"goodbyed_get_coure_v on Git Hab";
+
+
 			Console.WriteLine("Local path: " + pathToBat);
 			Console.WriteLine();
 
