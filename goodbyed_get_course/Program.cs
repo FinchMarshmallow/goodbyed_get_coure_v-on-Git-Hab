@@ -1,21 +1,21 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.DevTools;
 
 namespace goodbyed_get_course
 {
-	internal class ProgramA
+	internal class Program
 	{
 		private static Process? driverStartProcess;
-
 
 		public static ConsoleColor defBackground = (ConsoleColor)0; // чёрный
 		public static ConsoleColor defForegroun = (ConsoleColor)7; // серый
 
 		private static string? pathToBat = null;
 
-		private static Process? consolle;
+		private static Process? consolle = null;
 
 		public static string icons = "@#$%&*+=-";
 
@@ -75,17 +75,13 @@ namespace goodbyed_get_course
 				string body = e.ResponseBody;
 				if (body == null || body == "" || !body.Contains(@"""resultHash"":")) return;
 
-				Console.BackgroundColor =(ConsoleColor)6;
-				Console.ForegroundColor = (ConsoleColor)10;
+				SetConsoleColors(ConsoleColor.DarkGreen, ConsoleColor.Green);
 
 				Console.WriteLine($":\n {e.ResponseBody} \n:");
 
-				Console.BackgroundColor = (ConsoleColor)0; // чёрный
-				Console.ForegroundColor = (ConsoleColor)7; // серый
+				ResetConsoleColors();
 
-
-
-				NewAnswerWindow(body);
+				StartNewWindow(body);
 			};
 
 			Task monitoring = manager.StartMonitoring();
@@ -166,17 +162,24 @@ namespace goodbyed_get_course
 
 				ResetConsoleColors();
 
-				Console.Write("      ");
+				Console.Write("    ");
 
+				Math.Clamp(random.Next(-1, 16), 0, 15);
 
 				SetConsoleColors(
 					(ConsoleColor)numBackgroundColor,
-					(ConsoleColor)random.Next(0, 15));
+					(ConsoleColor)(Math.Clamp(random.Next(-1, 16), 0, 15)));
 
 				Console.Write(icons[random.Next(0, icons.Length - 1)]);
 				Console.Write(icons[random.Next(0, icons.Length - 1)]);
 				Console.Write(icons[random.Next(0, icons.Length - 1)]);
 
+				ResetConsoleColors();
+
+				if(consolle != null)
+				{
+					Console.Write("    " + consolle.ToString());
+				}
 
 				await Task.Delay(500);
 				
@@ -184,33 +187,59 @@ namespace goodbyed_get_course
 			}
 		}
 
-		private static void NewAnswerWindow(string body)
+		private static void StartNewWindow(string body)
 		{
+			if (consolle != null && !consolle.HasExited)
+					consolle.Kill();
+
+			KillPhytonWindows();
 
 			int hashStart = body.IndexOf("\"resultHash\":") + 14;
 			int hashEnd = body.IndexOf(",\"isLastQuestion\"")  - (@"""isLastQuestion"":false,""qrid"":null,"":").Length;
 
 			string hash = body.Substring(hashStart, hashEnd);
 
-			Console.BackgroundColor = (ConsoleColor)2;
-			Console.ForegroundColor = (ConsoleColor)15;
+			SetConsoleColors(ConsoleColor.DarkGreen, ConsoleColor.Green);
 
 			Console.WriteLine($"hash:\n {hash} \n:");
 
-			Console.BackgroundColor = (ConsoleColor)0;
-			Console.ForegroundColor = (ConsoleColor)7;
+			ResetConsoleColors();
 
-			ProcessStartInfo consolleInfo = new ProcessStartInfo();
-
-			consolleInfo.FileName = "cmd.exe";
-			consolleInfo.Arguments = $"/k cd \\ & cd {pathToBat} & start start.bat --\"{hash}\"";
-
-			consolleInfo.UseShellExecute = true;
-			consolleInfo.CreateNoWindow = true;
-
-			consolleInfo.WindowStyle = ProcessWindowStyle.Minimized;
+			ProcessStartInfo consolleInfo = new ProcessStartInfo()
+			{
+				FileName = "cmd.exe",
+				Arguments = $"/k cd \\ & cd {pathToBat} & start start.bat --\"{hash}\"",
+				UseShellExecute = true,
+				CreateNoWindow = true,
+				WindowStyle = ProcessWindowStyle.Minimized
+			};
 
 			consolle = Process.Start(consolleInfo);
+
+		}
+
+		private static void KillPhytonWindows()
+		{
+			Process[] pythonProcesses = Process.GetProcessesByName("python");
+
+			foreach (var process in pythonProcesses)
+			{
+				try
+				{
+					SetConsoleColors(ConsoleColor.Yellow, ConsoleColor.DarkBlue);
+					Console.Write($"kill process: id: {process.Id} name: {process.ProcessName} st: {process.ToString}");
+					ResetConsoleColors();
+
+					process.Kill();
+					process.WaitForExit();
+				}
+				catch (Exception ex)
+				{
+					SetConsoleColors(ConsoleColor.DarkRed, ConsoleColor.Red);
+					Console.WriteLine($"Eror: close python: {ex.Message}");
+					ResetConsoleColors();
+				}
+			}
 		}
 
 		private static void SetConsoleColors(ConsoleColor background, ConsoleColor foreground)
