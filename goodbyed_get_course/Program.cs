@@ -60,6 +60,63 @@ namespace goodbyed_get_course
 			pathToBat = Environment.CurrentDirectory;
 			pathToBat = pathToBat.Replace("goodbyed_get_course\\bin\\Debug\\net8.0", "PYBNCD\\BNCD1");
 
+			Console.Clear();
+
+			string userName;
+
+			while (true)
+			{
+				Console.BackgroundColor = (ConsoleColor)2; // тёмно зеленый
+				Console.ForegroundColor = (ConsoleColor)7; // светло зеленый
+
+				Console.Write("Enter yours user name, this pc:");
+
+				Console.BackgroundColor = (ConsoleColor)0; // чёрный
+				Console.ForegroundColor = (ConsoleColor)7; // серый
+
+				Console.Write(" ");
+
+				userName = Console.ReadLine();
+
+				try
+				{
+					if (Directory.Exists($"C:\\Users\\{userName}"))
+					{
+						break;
+					}
+					else
+					{
+						Console.Clear();
+
+						Console.BackgroundColor = (ConsoleColor)4;
+						Console.ForegroundColor = (ConsoleColor)15;
+
+						Console.WriteLine("Invalid username ! \n");
+
+						Console.BackgroundColor = (ConsoleColor)0;
+						Console.BackgroundColor = (ConsoleColor)7;
+
+					}
+				}
+				catch (Exception ex)
+				{
+					Console.BackgroundColor = (ConsoleColor)3;
+					Console.ForegroundColor = (ConsoleColor)11;
+
+					Console.WriteLine(" \nIncorrect path to user folder ! \n");
+
+					Console.BackgroundColor = (ConsoleColor)1; // тёмно крастный
+					Console.ForegroundColor = (ConsoleColor)9; // крастный
+
+					Console.WriteLine(ex.Message);
+
+					Console.BackgroundColor = (ConsoleColor)0;
+					Console.ForegroundColor = (ConsoleColor)7;
+				}
+			}
+
+
+
 
 
 
@@ -67,15 +124,28 @@ namespace goodbyed_get_course
 			//NewAnswerWindow(@"{""success"":true,""data"":{""resultHash"":""eyJzaG93X2Fuc3dlcl9yZXN1bHQiOiJzZWxlY3RlZCIsInF1ZXN0aW9uIjp7ImlkIjo1MTM1ODM4MCwidGl0bGUiOiJcdTA0MWFcdTA0MzBcdTA0M2FcdTA0M2VcdTA0MzJcdTA0M2UgXHUwNDM3XHUwNDNkXHUwNDMwXHUwNDQ3XHUwNDM1XHUwNDNkXHUwNDM4XHUwNDM1IFx1MDQ0MVx1MDQzOFx1MDQzZFx1MDQ0M1x1MDQ0MVx1MDQzMCBcdTA0NDNcdTA0MzNcdTA0M2JcdTA0MzAgMCBcdTA0MzNcdTA0NDBcdTA0MzBcdTA0MzRcdTA0NDNcdTA0NDFcdTA0M2VcdTA0MzI/IiwiZGVzY3JpcHRpb24iOiIiLCJ2YXJpYW50cyI6W3siaWQiOjE3Mzg0ODk5MywidmFsdWUiOiIxIiwiaXNfcmlnaHQiOjAsInBhcmFtcyI6eyJyaWdodF90ZXh0IjoiIiwiZXJyb3JfdGV4dCI6IiJ9LCJwb2ludHMiOm51bGx9LHsiaWQiOjE3Mzg0ODk5NCwidmFsdWUiOiItMSIsImlzX3JpZ2h0IjowLCJwYXJhbXMiOnsicmlnaHRfdGV4dCI6IiIsImVycm9yX3RleHQiOiIifSwicG9pbnRzIjpudWxsfSx7ImlkIjoxNzM4NDg5OTUsInZhbHVlIjoiMC41IiwiaXNfcmlnaHQiOjAsInBhcmFtcyI6eyJyaWdodF90ZXh0IjoiIiwiZXJyb3JfdGV4dCI6IiJ9LCJwb2ludHMiOm51bGx9LHsiaWQiOjE3NDA3NjA4OCwidmFsdWUiOiJcdTA0MWUiLCJpc19yaWdodCI6MSwicGFyYW1zIjp7InJpZ2h0X3RleHQiOiIiLCJlcnJvcl90ZXh0IjoiIn0sInBvaW50cyI6bnVsbH1dLCJwYXJhbXMiOnsicmlnaHRfaW1hZ2UiOm51bGwsInJpZ2h0X3RleHQiOiIiLCJlcnJvcl90ZXh0IjoiIiwicmlnaHRfcG9pbnRzIjoiIiwicmlnaHRfaWZfYWxsIjp0cnVlLCJyZXF1aXJlZF9xdWVzdGlvbiI6ZmFsc2V9fX0="",""isLastQuestion"":false,""qrid"":null,""question_id"":51358380,""resultHtml"":""\n\t\n\t\t<div class=\""questionary-title-wrapper\"">\n\t\t\t<h3 class=\""questionary-title\"">\n\t\t\t\t<span>Тригонометрические функции</span><hr>\n\t\t\t</h3>\n\t\t</div>\n\n\t\t                    \t\t\t\t\n\t\t<div class=\""question\"">\n\t\t\t\t\t\t<div class=\""question-number text-center\"">\n\t\t\t\tВопрос №2 из 10\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\""question-multi-answers-hint text-center\"">\n\t\t\t\t\tВыберите один или несколько вариантов ответа\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\""question-title-big\"">\n\t\t\t\tКаково значение синуса угла 0 градусов?\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\""question-data row\"">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\""question-answer-block  col-md-12 \"">\n\t\t\t\t\t<div class=\""button-list\"">\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t<button\n\t\t\t\t\t\t\t\tclass=\""btn btn-default btn-mark-variant js__btn-variant\""\n\t\t\t\t\t\t\t\ttype=\""button\""\n\t\t\t\t\t\t\t\tdata-marked=\""0\""\n\t\t\t\t\t\t\t\tdata-question-id=\""51358380\""\n\t\t\t\t\t\t\t\tdata-value=\""-1\""\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t-1\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button\n\t\t\t\t\t\t\t\tclass=\""btn btn-default btn-mark-variant js__btn-variant\""\n\t\t\t\t\t\t\t\ttype=\""button\""\n\t\t\t\t\t\t\t\tdata-marked=\""0\""\n\t\t\t\t\t\t\t\tdata-question-id=\""51358380\""\n\t\t\t\t\t\t\t\tdata-value=\""1\""\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t1\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button\n\t\t\t\t\t\t\t\tclass=\""btn btn-default btn-mark-variant js__btn-variant\""\n\t\t\t\t\t\t\t\ttype=\""button\""\n\t\t\t\t\t\t\t\tdata-marked=\""0\""\n\t\t\t\t\t\t\t\tdata-question-id=\""51358380\""\n\t\t\t\t\t\t\t\tdata-value=\""0.5\""\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t0.5\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button\n\t\t\t\t\t\t\t\tclass=\""btn btn-default btn-mark-variant js__btn-variant\""\n\t\t\t\t\t\t\t\ttype=\""button\""\n\t\t\t\t\t\t\t\tdata-marked=\""0\""\n\t\t\t\t\t\t\t\tdata-question-id=\""51358380\""\n\t\t\t\t\t\t\t\tdata-value=\""О\""\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\tО\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t<button class=\""btn btn-primary btn-send-all-variants btn-send-variant\""\n\t\t\t\t\t\t\t\ttype=\""button\""\n\t\t\t\t\t\t\t\tstyle=\""display: none;\""\n\t\t\t\t\t\t\t\tdata-question-id=\""51358380\""\n\t\t\t\t\t\t\t\tdata-value=\""\"">Ответить</button>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t\t\n<script>\n\tconsole.log('2');\n\twindow.lessonId = ;\n\t\twindow.isEnabledMobileTesting = 0;\n\n\t$(function () {\n\t\t$('#conversation-link').on('click', function () {\n\t\t\tif (window.appHandleAction) {\n\t\t\t\twindow.appHandleAction({\n\t\t\t\t\ttype: 'navigate',\n\t\t\t\t\turl: location.origin + '/c/s/resp/my'\n\t\t\t\t})\n\t\t\t} else {\n\t\t\t\tlocation.href = '/pl/talks/conversation';\n\t\t\t}\n\t\t})\n\t});\n</script>\n<style>\n    .fsz-14px {\n        font-size: 14px!important;\n    }\n\n    .video-wrapper {\n\t    text-align: center;\n    }\n\n    .testing-restart-timer {\n\t    color: #808080;\n\t    font-size: 34px;\n\t    display: block;\n    }\n</style>\n""},""message"":null}");
 
 
+			try
+			{
+				driverStartProcess = new Process();
 
-			driverStartProcess = new Process();
-			
-			driverStartProcess.StartInfo.FileName = @"C:\Program Files\Google\Chrome\Application\chrome.exe";
-			driverStartProcess.StartInfo.Arguments = "--remote-debugging-port=9222 --user-data-dir= \"C:\\Users\\Sima\\AppData\\Local\\Google\\Chrome\\User Data\\Default\"";
+				driverStartProcess.StartInfo.FileName = @"C:\Program Files\Google\Chrome\Application\chrome.exe";
+				driverStartProcess.StartInfo.Arguments = $"--remote-debugging-port=9222 --user-data-dir= \"C:\\Users\\{userName}\\AppData\\Local\\Google\\Chrome\\User Data\\Default\"";
 
-			driverStartProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized; 
+				driverStartProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized;
 
-			driverStartProcess.Start();
+				driverStartProcess.Start();
+			}
+			catch (Exception ex)
+			{
+
+				Console.BackgroundColor = (ConsoleColor)1; // тёмно крастный
+				Console.ForegroundColor = (ConsoleColor)7; // крастный
+
+				Console.WriteLine(ex.Message);
+				return;
+			}
+
+
 
 
 			ChromeOptions options = new ChromeOptions();
