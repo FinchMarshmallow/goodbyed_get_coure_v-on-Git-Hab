@@ -1,0 +1,1 @@
+"%~dp0goodbyed_get_course\bin\Debug\net8.0\goodbyed_get_course.exe"

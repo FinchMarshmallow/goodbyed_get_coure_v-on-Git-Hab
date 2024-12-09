@@ -24,10 +24,18 @@ namespace goodbyed_get_course
 
 		static async Task Main(string[] args)
 		{
+			Console.Clear();
+
+			SetConsoleColors(ConsoleColor.Magenta, ConsoleColor.Cyan);
 
 			pathToBat = Environment.CurrentDirectory;
+			Console.WriteLine("Original path: " + pathToBat);
+
 			pathToBat = pathToBat.Replace("goodbyed_get_course\\bin\\Debug\\net8.0", "PYBNCD\\BNCD1");
-			Console.Clear();
+			Console.WriteLine("Local path: " + pathToBat);
+			Console.WriteLine();
+
+			ResetConsoleColors();
 
 			string userName = GetUserName();
 
@@ -114,7 +122,7 @@ namespace goodbyed_get_course
 					}
 					else
 					{
-						Console.Clear();
+						//Console.Clear();
 
 						SetConsoleColors(ConsoleColor.DarkRed, ConsoleColor.White);
 
