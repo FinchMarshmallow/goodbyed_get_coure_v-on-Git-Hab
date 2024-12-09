@@ -36,7 +36,6 @@ using static System.Net.Mime.MediaTypeNames;
 
 
 using System;
-using System.Diagnostics;
 using System.Management;
 
 namespace goodbyed_get_course
@@ -622,11 +621,11 @@ namespace goodbyed_get_course
 
 		private static void NewAnswerWindow(string body)
 		{
-			if (consolle != null)
-			{
-				consolle.Kill();
-				consolle = null;
-			}
+			//if (consolle != null)
+			//{
+			//	consolle.Kill();
+			//	consolle = null;
+			//}
 
 			//CloseWinAnsser();
 
@@ -673,16 +672,16 @@ namespace goodbyed_get_course
 
 		private static async void CloseWinAnsser()
 		{
-			foreach (var winAnser in answersWindows)
-			{
-				if( winAnser == driverStartProcess) continue;
-				if( winAnser.Id == driverStartProcess.Id) continue;
+			//foreach (var winAnser in answersWindows)
+			//{
+			//	if( winAnser == driverStartProcess) continue;
+			//	if( winAnser.Id == driverStartProcess.Id) continue;
 
-				winAnser?.Kill();
-				await Task.Delay(15);
-			}
+			//	winAnser?.Kill();
+			//	await Task.Delay(15);
+			//}
 
-			answersWindows = new();
+			//answersWindows = new();
 		}
 
 		private static async void WhraiteCloseWin(int parentId)
@@ -712,5 +711,41 @@ namespace goodbyed_get_course
 			consolle?.WaitForExit();
 		}
 
+
+
+
+
+		/*
+
+
+
+
+
+		IPAddress.Any - получение сомого подхдящего порта
+		или
+		0 а после получить через LocalEndpoint
+
+		public void Bind (EndPoint localEP); - Bind связывается с локальной точкой
+
+
+		пример:
+
+
+		using System.Net;
+		using System.Net.Sockets;
+		 
+		IPEndPoint ipPoint = new IPEndPoint(IPAddress.Any, 8888);
+		using Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+		socket.Bind(ipPoint);   // связываем с локальной точкой ipPoint
+		 
+		// получаем конечную точку, с которой связан сокет
+		Console.WriteLine(socket.LocalEndPoint); // 0.0.0.0:8888
+
+
+		В этом примере сокет будет прослушивать подключения по 8888 порту на любых локальных адресах.
+		То есть клиент должен будет подключаться к локальному адресу, например, к 127.0.0.1, и порту 8888.
+
+
+		*/
 	}
 }
