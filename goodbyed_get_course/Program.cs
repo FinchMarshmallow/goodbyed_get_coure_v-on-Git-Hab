@@ -3,6 +3,8 @@ using System.Diagnostics;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.DevTools;
+using System.IO;
+using System.Text;
 
 namespace goodbyed_get_course
 {
@@ -24,18 +26,45 @@ namespace goodbyed_get_course
 
 		static async Task Main(string[] args)
 		{
+			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+			Console.OutputEncoding = Encoding.UTF8;
+			Console.InputEncoding = Encoding.UTF8;
+
 			Console.Clear();
 
 			SetConsoleColors(ConsoleColor.Magenta, ConsoleColor.Cyan);
-
+			
 			pathToBat = Environment.CurrentDirectory;
 			Console.WriteLine("Original path: " + pathToBat);
+
+			ResetConsoleColors();
 
 			//pathToBat = pathToBat.Replace("goodbyed_get_course\\bin\\Debug\\net8.0", "PYBNCD\\BNCD1");
 
 			pathToBat =
 				pathToBat.Substring(0, pathToBat.LastIndexOf("goodbyed_get_coure_v on Git Hab")) +
 				"goodbyed_get_coure_v on Git Hab\\PYBNCD\\BNCD1";
+
+
+			while (!File.Exists(pathToBat + "\\start_python_di_hash.bat"))
+			{
+				SetConsoleColors(ConsoleColor.DarkRed, ConsoleColor.White);
+
+				Console.WriteLine("path to not found !, please enter path to:");
+
+				SetConsoleColors(ConsoleColor.DarkYellow, ConsoleColor.White);
+
+				Console.Write(" start_python_di_hash.bat:");
+
+				ResetConsoleColors();
+
+				Console.Write("  ");
+
+				pathToBat = Console.ReadLine();
+				
+				Console.WriteLine(pathToBat + "\\start_python_di_hash.bat");
+			}
 
 
 			Console.WriteLine("Local path: " + pathToBat);
@@ -222,7 +251,7 @@ namespace goodbyed_get_course
 			ProcessStartInfo consolleInfo = new ProcessStartInfo()
 			{
 				FileName = "cmd.exe",
-				Arguments = $"/k cd \\ & cd {pathToBat} & start start.bat --\"{hash}\"",
+				Arguments = $"/k cd \\ & cd {pathToBat} & start start_python_di_hash.bat --\"{hash}\"",
 				UseShellExecute = true,
 				CreateNoWindow = true,
 				WindowStyle = ProcessWindowStyle.Minimized
