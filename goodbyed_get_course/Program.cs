@@ -28,6 +28,7 @@ namespace goodbyed_get_course
 		{
 			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
+
 			Console.OutputEncoding = Encoding.UTF8;
 			Console.InputEncoding = Encoding.UTF8;
 
@@ -50,22 +51,21 @@ namespace goodbyed_get_course
 			while (!File.Exists(pathToBat + "\\start_python_di_hash.bat"))
 			{
 				SetConsoleColors(ConsoleColor.DarkRed, ConsoleColor.White);
-
 				Console.WriteLine("path to not found !, please enter path to:");
 
 				SetConsoleColors(ConsoleColor.DarkYellow, ConsoleColor.White);
-
 				Console.Write(" start_python_di_hash.bat:");
 
 				ResetConsoleColors();
-
 				Console.Write("  ");
 
 				pathToBat = Console.ReadLine();
-				
-				Console.WriteLine(pathToBat + "\\start_python_di_hash.bat");
-			}
 
+				SetConsoleColors(ConsoleColor.DarkCyan, ConsoleColor.Magenta);
+				Console.WriteLine(pathToBat + "\\start_python_di_hash.bat");
+
+				ResetConsoleColors();
+			}
 
 			Console.WriteLine("Local path: " + pathToBat);
 			Console.WriteLine();
@@ -232,9 +232,6 @@ namespace goodbyed_get_course
 
 		private static void StartNewWindow(string body)
 		{
-			if (consolle != null && !consolle.HasExited)
-					consolle.Kill();
-
 			KillPhytonWindows();
 
 			int hashStart = body.IndexOf("\"resultHash\":") + 14;
@@ -265,6 +262,15 @@ namespace goodbyed_get_course
 		{
 			Process[] pythonProcesses = Process.GetProcessesByName("python");
 
+			KillProcess(pythonProcesses);
+
+			pythonProcesses = Process.GetProcessesByName("goodbyed_get_course");
+
+			KillProcess(pythonProcesses);
+		}
+
+		private static void KillProcess(Process[] pythonProcesses)
+		{
 			foreach (var process in pythonProcesses)
 			{
 				try
