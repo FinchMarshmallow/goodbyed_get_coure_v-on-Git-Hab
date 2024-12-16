@@ -264,9 +264,9 @@ namespace goodbyed_get_course
 
 			KillProcess(pythonProcesses);
 
-			pythonProcesses = Process.GetProcessesByName("goodbyed_get_course");
+			//pythonProcesses = Process.GetProcessesByName("goodbyed_get_course");
 
-			KillProcess(pythonProcesses);
+			//KillProcess(pythonProcesses);
 		}
 
 		private static void KillProcess(Process[] pythonProcesses)
