@@ -254,7 +254,7 @@ namespace goodbyed_get_course
 
 		private static async Task ChekResponseBody(string body)
 		{
-			if (body == null || body == "" || !body.Contains(@"""resultHash"":")) return;
+			if (body == null || body == "" || !(body.Length >= 15 && body.IndexOf(@"""resultHash"":", StringComparison.Ordinal) >= 0)) return;
 
 			SetConsoleColors(ConsoleColor.DarkGreen, ConsoleColor.Green);
 
