@@ -31,6 +31,8 @@ namespace goodbyed_get_course
 		public static int numBackgroundColor = 0;
 		public static int time = 0;
 
+		public static string currentMasage = "";
+
 		static async Task Main(string[] args)
 		{
 			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -125,7 +127,7 @@ namespace goodbyed_get_course
 			NetworkManager manager = new NetworkManager(driver);
 			networkInterceptor.NetworkResponseReceived += async (object sender, NetworkResponseReceivedEventArgs e) =>
 			{
-				await Task.Run( () => ChekResponseBody( e.ResponseBody));
+				await ChekResponseBody(e.ResponseBody);
 			};
 
 			Task monitoring = manager.StartMonitoring();
@@ -195,8 +197,13 @@ namespace goodbyed_get_course
 				Random random = new Random(time);
 
 				ResetConsoleColors();
+				Console.Clear();
 
-				Console.Write("\n                     ");
+				SetConsoleColors(ConsoleColor.DarkGray, ConsoleColor.Gray);
+				Console.WriteLine("Ответ:");
+				ResetConsoleColors();
+
+				Console.WriteLine("\n" + currentMasage + "\n");
 
 				SetConsoleColors(
 					(ConsoleColor)numBackgroundColor,
@@ -232,7 +239,7 @@ namespace goodbyed_get_course
 		}
 
 
-		private static void ChekResponseBody(string body)
+		private static async Task ChekResponseBody(string body)
 		{
 			if (body == null || body == "" || !body.Contains(@"""resultHash"":")) return;
 
@@ -279,12 +286,20 @@ namespace goodbyed_get_course
 			{
 				if (variant.GetProperty("is_right").GetInt32() == 1)
 				{
-					string correctAnswer = variant.GetProperty("value").GetString();
+					string? correctAnswer = variant.GetProperty("value").GetString();
+
+					if (correctAnswer == null)
+						return;
+
 					Console.WriteLine(correctAnswer);
+
+					currentMasage = correctAnswer;
+
 					return; 
 				}
 			}
 
+			currentMasage = "Правильный ответ не найден.";
 			Console.WriteLine("Правильный ответ не найден.");
 
 
