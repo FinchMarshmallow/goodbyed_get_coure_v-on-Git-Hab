@@ -128,25 +128,14 @@ namespace goodbyed_get_course
 			NetworkManager manager = new NetworkManager(driver);
 			networkInterceptor.NetworkResponseReceived += async (object sender, NetworkResponseReceivedEventArgs e) =>
 			{
-				await messageChannel.Writer.WriteAsync(e.ResponseBody);
+				await ChekResponseBody(e.ResponseBody);
 			};
 
 			Task monitoring = manager.StartMonitoring();
 			monitoring.Wait();
 
-			StartMessageProcessingAsync();
 
 			while (true) { }
-		}
-
-		private static readonly Channel<string> messageChannel = Channel.CreateUnbounded<string>();
-
-		private static async Task StartMessageProcessingAsync()
-		{
-			await foreach (var body in messageChannel.Reader.ReadAllAsync())
-			{
-				await ChekResponseBody(body);
-			}
 		}
 
 		private static string GetUserName()
