@@ -6,6 +6,13 @@ using OpenQA.Selenium.DevTools;
 using System.IO;
 using System.Text;
 
+using System;
+using System.Text.RegularExpressions;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Text.Json;
+
 namespace goodbyed_get_course
 {
 	internal class Program
@@ -15,7 +22,7 @@ namespace goodbyed_get_course
 		public static ConsoleColor defBackground = (ConsoleColor)0; // чёрный
 		public static ConsoleColor defForegroun = (ConsoleColor)7; // серый
 
-		private static string? pathToBat = null;
+		//private static string? pathToBat = null;
 
 		private static Process? consolle = null;
 
@@ -36,39 +43,42 @@ namespace goodbyed_get_course
 
 			SetConsoleColors(ConsoleColor.Magenta, ConsoleColor.Cyan);
 			
-			pathToBat = Environment.CurrentDirectory;
-			Console.WriteLine("Original path: " + pathToBat);
+			//pathToBat = Environment.CurrentDirectory;
+			//Console.WriteLine("Original path: " + pathToBat);
 
 			ResetConsoleColors();
 
 			//pathToBat = pathToBat.Replace("goodbyed_get_course\\bin\\Debug\\net8.0", "PYBNCD\\BNCD1");
+			//
+			//pathToBat =
+			//	pathToBat.Substring(
+			//		0,
+			//		pathToBat.LastIndexOf(
+			//			"goodbyed_get_coure_v on Git Hab")) +
+			//		"goodbyed_get_coure_v on Git Hab\\PYBNCD\\BNCD1";
 
-			pathToBat =
-				pathToBat.Substring(0, pathToBat.LastIndexOf("goodbyed_get_coure_v on Git Hab")) +
-				"goodbyed_get_coure_v on Git Hab\\PYBNCD\\BNCD1";
 
+			//while (!File.Exists(pathToBat + "\\start_python_di_hash.bat"))
+			//{
+			//	SetConsoleColors(ConsoleColor.DarkRed, ConsoleColor.White);
+			//	Console.WriteLine("path to not found !, please enter path to:");
+			//
+			//	SetConsoleColors(ConsoleColor.DarkYellow, ConsoleColor.White);
+			//	Console.Write(" start_python_di_hash.bat:");
+			//
+			//	ResetConsoleColors();
+			//	Console.Write("  ");
+			//
+			//	pathToBat = Console.ReadLine();
+			//
+			//	SetConsoleColors(ConsoleColor.DarkCyan, ConsoleColor.Magenta);
+			//	Console.WriteLine(pathToBat + "\\start_python_di_hash.bat");
+			//
+			//	ResetConsoleColors();
+			//}
 
-			while (!File.Exists(pathToBat + "\\start_python_di_hash.bat"))
-			{
-				SetConsoleColors(ConsoleColor.DarkRed, ConsoleColor.White);
-				Console.WriteLine("path to not found !, please enter path to:");
-
-				SetConsoleColors(ConsoleColor.DarkYellow, ConsoleColor.White);
-				Console.Write(" start_python_di_hash.bat:");
-
-				ResetConsoleColors();
-				Console.Write("  ");
-
-				pathToBat = Console.ReadLine();
-
-				SetConsoleColors(ConsoleColor.DarkCyan, ConsoleColor.Magenta);
-				Console.WriteLine(pathToBat + "\\start_python_di_hash.bat");
-
-				ResetConsoleColors();
-			}
-
-			Console.WriteLine("Local path: " + pathToBat);
-			Console.WriteLine();
+			//Console.WriteLine("Local path: " + pathToBat);
+			//Console.WriteLine();
 
 			ResetConsoleColors();
 
@@ -103,7 +113,7 @@ namespace goodbyed_get_course
 			await networkInterceptor.StartMonitoring();
 
 
-			var domains = session.GetVersionSpecificDomains<OpenQA.Selenium.DevTools.DevToolsSessionDomains>();
+			var domains = session.GetVersionSpecificDomains<DevToolsSessionDomains>();
 			var network = session.Domains.Network;
 
 			Task enableNetwork = network.EnableNetwork();
@@ -113,18 +123,9 @@ namespace goodbyed_get_course
 
 
 			NetworkManager manager = new NetworkManager(driver);
-			networkInterceptor.NetworkResponseReceived += (object sender, NetworkResponseReceivedEventArgs e) =>
+			networkInterceptor.NetworkResponseReceived += async (object sender, NetworkResponseReceivedEventArgs e) =>
 			{
-				string body = e.ResponseBody;
-				if (body == null || body == "" || !body.Contains(@"""resultHash"":")) return;
-
-				SetConsoleColors(ConsoleColor.DarkGreen, ConsoleColor.Green);
-
-				Console.WriteLine($":\n {e.ResponseBody} \n:");
-
-				ResetConsoleColors();
-
-				StartNewWindow(body);
+				await Task.Run( () => ChekResponseBody( e.ResponseBody));
 			};
 
 			Task monitoring = manager.StartMonitoring();
@@ -230,22 +231,64 @@ namespace goodbyed_get_course
 			}
 		}
 
-		private static void StartNewWindow(string body)
-		{
-			KillPhytonWindows();
 
+		private static void ChekResponseBody(string body)
+		{
+			if (body == null || body == "" || !body.Contains(@"""resultHash"":")) return;
+
+			SetConsoleColors(ConsoleColor.DarkGreen, ConsoleColor.Green);
+
+			Console.WriteLine($":\n {body} \n:");
+
+			ResetConsoleColors();
+
+			NewWindows(body);
+		}
+
+		private static void NewWindows(string body)
+		{
 			int hashStart = body.IndexOf("\"resultHash\":") + 14;
-			int hashEnd = body.IndexOf(",\"isLastQuestion\"")  - (@"""isLastQuestion"":false,""qrid"":null,"":").Length;
+			int hashEnd = body.IndexOf(",\"isLastQuestion\"")  - (@""",""isLastQuestion"":false,""qrid"":null,"":").Length;
 
 			string hash = body.Substring(hashStart, hashEnd);
 
 			SetConsoleColors(ConsoleColor.DarkGreen, ConsoleColor.Green);
-
-			Console.WriteLine($"hash:\n {hash} \n:");
-
+			Console.WriteLine($"hash:\n{hash}\n:");
 			ResetConsoleColors();
 
-			ProcessStartInfo consolleInfo = new ProcessStartInfo()
+			Console.WriteLine($"original hash: \n{hash}\n");
+
+			byte[] decryptedByteHash = Convert.FromBase64String(hash);
+
+			Console.WriteLine($"decrypted byte hash: \n{BitConverter.ToString(decryptedByteHash)}\n");
+
+
+			string unescapeHash = Encoding.UTF8.GetString(decryptedByteHash);
+
+			Console.WriteLine($"unescapeHash: \n{unescapeHash}\n");
+
+
+			string jsonString = Regex.Unescape(unescapeHash);
+
+			Console.WriteLine($"decryptedString: \n{jsonString}\n");
+
+			var jsonDoc = JsonDocument.Parse(jsonString);
+			var variants = jsonDoc.RootElement.GetProperty("question").GetProperty("variants");
+
+			foreach (var variant in variants.EnumerateArray())
+			{
+				if (variant.GetProperty("is_right").GetInt32() == 1)
+				{
+					string correctAnswer = variant.GetProperty("value").GetString();
+					Console.WriteLine(correctAnswer);
+					return; 
+				}
+			}
+
+			Console.WriteLine("Правильный ответ не найден.");
+
+
+			/*ProcessStartInfo consolleInfo = new ProcessStartInfo()
 			{
 				FileName = "cmd.exe",
 				Arguments = $"/k cd \\ & cd {pathToBat} & start start_python_di_hash.bat --\"{hash}\"",
@@ -254,7 +297,7 @@ namespace goodbyed_get_course
 				WindowStyle = ProcessWindowStyle.Minimized
 			};
 
-			consolle = Process.Start(consolleInfo);
+			consolle = Process.Start(consolleInfo); */
 
 		}
 
@@ -330,3 +373,6 @@ namespace goodbyed_get_course
 		}
 	}
 }
+
+
+

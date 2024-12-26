@@ -65,3 +65,4 @@ C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_c
 C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Debug\net8.0\goodbyed_get_course.genruntimeconfig.cache
 C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Debug\net8.0\ref\goodbyed_get_course.dll
 C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Debug\net8.0\goodbyed_get_course.sourcelink.json
+C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Debug\net8.0\Newtonsoft.Json.dll
