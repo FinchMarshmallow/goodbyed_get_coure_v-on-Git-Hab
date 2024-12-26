@@ -216,7 +216,7 @@ namespace goodbyed_get_course
 				Console.WriteLine("Ответ:");
 				ResetConsoleColors();
 
-				Console.WriteLine("\n" + currentMasage + "\n");
+				Console.WriteLine("\n" + currentMasage + "\n\n\n\n");
 
 				SetConsoleColors(
 					(ConsoleColor)numBackgroundColor,
