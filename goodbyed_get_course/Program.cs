@@ -245,7 +245,7 @@ namespace goodbyed_get_course
 					Console.Write("    " + consolle.ToString());
 				}
 
-				await Task.Delay(500);
+				await Task.Delay(800);
 				
 				time++;
 			}
