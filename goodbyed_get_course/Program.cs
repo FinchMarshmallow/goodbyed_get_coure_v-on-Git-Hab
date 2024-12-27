@@ -97,7 +97,7 @@ namespace goodbyed_get_course
 			var driver = new ChromeDriver(options);
 			driver.Navigate().GoToUrl("https://irbis-edu.getcourse.ru/teach/control/stream/index");
 
-			var requestHandler = new NetworkRequestHandler();
+			NetworkRequestHandler requestHandler = new NetworkRequestHandler();
 
 			requestHandler.RequestTransformer = (request) => { return request; };
 			requestHandler.RequestMatcher = httprequest => { return false; };
@@ -130,9 +130,6 @@ namespace goodbyed_get_course
 
 			Task monitoring = manager.StartMonitoring();
 			monitoring.Wait();
-
-
-
 
 			Console.ReadLine();
 
@@ -290,6 +287,8 @@ namespace goodbyed_get_course
 				JsonDocument jsonDoc = JsonDocument.Parse(jsonString);
 				JsonElement variants = jsonDoc.RootElement.GetProperty("question").GetProperty("variants");
 
+				currentMasage = "";
+
 				foreach (JsonElement variant in variants.EnumerateArray())
 				{
 					if (variant.GetProperty("is_right").GetInt32() == 1)
@@ -298,12 +297,8 @@ namespace goodbyed_get_course
 
 						if (correctAnswer == null)
 							return;
-
 						Console.WriteLine(correctAnswer);
-
-						currentMasage = correctAnswer;
-
-						return;
+						currentMasage += correctAnswer + "\n";
 					}
 				}
 
@@ -334,9 +329,9 @@ namespace goodbyed_get_course
 
 			KillProcess(pythonProcesses);
 
-			//pythonProcesses = Process.GetProcessesByName("goodbyed_get_course");
+			/*pythonProcesses = Process.GetProcessesByName("goodbyed_get_course");
 
-			//KillProcess(pythonProcesses);
+			KillProcess(pythonProcesses);*/
 		}
 
 		private static void KillProcess(Process[] pythonProcesses)
