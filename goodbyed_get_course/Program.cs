@@ -299,12 +299,6 @@ namespace goodbyed_get_course
 					}
 				}
 
-				if(currentMasage == "")
-				{
-					currentMasage = "Правильный ответ не найден.";
-					Console.WriteLine("Правильный ответ не найден.");
-				}
-
 				/*ProcessStartInfo consolleInfo = new ProcessStartInfo()
 				{
 					FileName = "cmd.exe",
