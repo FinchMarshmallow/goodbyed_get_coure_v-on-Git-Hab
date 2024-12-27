@@ -256,9 +256,6 @@ namespace goodbyed_get_course
 		{
 			try
 			{
-
-
-
 				int hashStart = body.IndexOf("\"resultHash\":") + 14;
 				int hashEnd = body.IndexOf(",\"isLastQuestion\"")  - (@""",""isLastQuestion"":false,""qrid"":null,"":").Length;
 
@@ -302,8 +299,11 @@ namespace goodbyed_get_course
 					}
 				}
 
-				currentMasage = "Правильный ответ не найден.";
-				Console.WriteLine("Правильный ответ не найден.");
+				if(currentMasage == "")
+				{
+					currentMasage = "Правильный ответ не найден.";
+					Console.WriteLine("Правильный ответ не найден.");
+				}
 
 				/*ProcessStartInfo consolleInfo = new ProcessStartInfo()
 				{
