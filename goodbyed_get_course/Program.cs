@@ -44,46 +44,43 @@ namespace goodbyed_get_course
 
 			Console.Clear();
 
-			SetConsoleColors(ConsoleColor.Magenta, ConsoleColor.Cyan);
+			/* SetConsoleColors(ConsoleColor.Magenta, ConsoleColor.Cyan);
+
+			ResetConsoleColors();
+
+			pathToBat = pathToBat.Replace("goodbyed_get_course\\bin\\Debug\\net8.0", "PYBNCD\\BNCD1");
 			
-			//pathToBat = Environment.CurrentDirectory;
-			//Console.WriteLine("Original path: " + pathToBat);
-
-			ResetConsoleColors();
-
-			//pathToBat = pathToBat.Replace("goodbyed_get_course\\bin\\Debug\\net8.0", "PYBNCD\\BNCD1");
-			//
-			//pathToBat =
-			//	pathToBat.Substring(
-			//		0,
-			//		pathToBat.LastIndexOf(
-			//			"goodbyed_get_coure_v on Git Hab")) +
-			//		"goodbyed_get_coure_v on Git Hab\\PYBNCD\\BNCD1";
+			pathToBat =
+				pathToBat.Substring(
+					0,
+					pathToBat.LastIndexOf(
+						"goodbyed_get_coure_v on Git Hab")) +
+					"goodbyed_get_coure_v on Git Hab\\PYBNCD\\BNCD1";
 
 
-			//while (!File.Exists(pathToBat + "\\start_python_di_hash.bat"))
-			//{
-			//	SetConsoleColors(ConsoleColor.DarkRed, ConsoleColor.White);
-			//	Console.WriteLine("path to not found !, please enter path to:");
-			//
-			//	SetConsoleColors(ConsoleColor.DarkYellow, ConsoleColor.White);
-			//	Console.Write(" start_python_di_hash.bat:");
-			//
-			//	ResetConsoleColors();
-			//	Console.Write("  ");
-			//
-			//	pathToBat = Console.ReadLine();
-			//
-			//	SetConsoleColors(ConsoleColor.DarkCyan, ConsoleColor.Magenta);
-			//	Console.WriteLine(pathToBat + "\\start_python_di_hash.bat");
-			//
-			//	ResetConsoleColors();
-			//}
+			while (!File.Exists(pathToBat + "\\start_python_di_hash.bat"))
+			{
+				SetConsoleColors(ConsoleColor.DarkRed, ConsoleColor.White);
+				Console.WriteLine("path to not found !, please enter path to:");
+			
+				SetConsoleColors(ConsoleColor.DarkYellow, ConsoleColor.White);
+				Console.Write(" start_python_di_hash.bat:");
+			
+				ResetConsoleColors();
+				Console.Write("  ");
+			
+				pathToBat = Console.ReadLine();
+			
+				SetConsoleColors(ConsoleColor.DarkCyan, ConsoleColor.Magenta);
+				Console.WriteLine(pathToBat + "\\start_python_di_hash.bat");
+			
+				ResetConsoleColors();
+			}
 
-			//Console.WriteLine("Local path: " + pathToBat);
-			//Console.WriteLine();
+			Console.WriteLine("Local path: " + pathToBat);
+			Console.WriteLine();
 
-			ResetConsoleColors();
+			ResetConsoleColors(); */
 
 			string userName = GetUserName();
 
@@ -134,6 +131,10 @@ namespace goodbyed_get_course
 			Task monitoring = manager.StartMonitoring();
 			monitoring.Wait();
 
+
+
+
+			Console.ReadLine();
 
 			while (true) { }
 		}
@@ -243,7 +244,7 @@ namespace goodbyed_get_course
 
 		private static async Task ChekResponseBody(string body)
 		{
-			if (body == null || body == "" || !(body.Length >= 15 && body.IndexOf(@"""resultHash"":", StringComparison.Ordinal) >= 0)) return;
+			if (body == null || body == "" || !(body.Length >= 15) || !(body.IndexOf(@"""resultHash"":", StringComparison.Ordinal) >= 0)) return;
 
 			SetConsoleColors(ConsoleColor.DarkGreen, ConsoleColor.Green);
 
@@ -256,65 +257,74 @@ namespace goodbyed_get_course
 
 		private static void NewWindows(string body)
 		{
-			int hashStart = body.IndexOf("\"resultHash\":") + 14;
-			int hashEnd = body.IndexOf(",\"isLastQuestion\"")  - (@""",""isLastQuestion"":false,""qrid"":null,"":").Length;
-
-			string hash = body.Substring(hashStart, hashEnd);
-
-			SetConsoleColors(ConsoleColor.DarkGreen, ConsoleColor.Green);
-			Console.WriteLine($"hash:\n{hash}\n:");
-			ResetConsoleColors();
-
-			Console.WriteLine($"original hash: \n{hash}\n");
-
-			byte[] decryptedByteHash = Convert.FromBase64String(hash);
-
-			Console.WriteLine($"decrypted byte hash: \n{BitConverter.ToString(decryptedByteHash)}\n");
-
-
-			string unescapeHash = Encoding.UTF8.GetString(decryptedByteHash);
-
-			Console.WriteLine($"unescapeHash: \n{unescapeHash}\n");
-
-
-			string jsonString = Regex.Unescape(unescapeHash);
-
-			Console.WriteLine($"decryptedString: \n{jsonString}\n");
-
-			var jsonDoc = JsonDocument.Parse(jsonString);
-			var variants = jsonDoc.RootElement.GetProperty("question").GetProperty("variants");
-
-			foreach (var variant in variants.EnumerateArray())
+			try
 			{
-				if (variant.GetProperty("is_right").GetInt32() == 1)
+
+
+
+				int hashStart = body.IndexOf("\"resultHash\":") + 14;
+				int hashEnd = body.IndexOf(",\"isLastQuestion\"")  - (@""",""isLastQuestion"":false,""qrid"":null,"":").Length;
+
+				string hash = body.Substring(hashStart, hashEnd);
+
+				SetConsoleColors(ConsoleColor.DarkGreen, ConsoleColor.Green);
+				Console.WriteLine($"hash:\n{hash}\n:");
+				ResetConsoleColors();
+
+				Console.WriteLine($"original hash: \n{hash}\n");
+
+				byte[] decryptedByteHash = Convert.FromBase64String(hash);
+
+				Console.WriteLine($"decrypted byte hash: \n{BitConverter.ToString(decryptedByteHash)}\n");
+
+
+				string unescapeHash = Encoding.UTF8.GetString(decryptedByteHash);
+
+				Console.WriteLine($"unescapeHash: \n{unescapeHash}\n");
+
+
+				string jsonString = Regex.Unescape(unescapeHash);
+
+				Console.WriteLine($"decryptedString: \n{jsonString}\n");
+
+				JsonDocument jsonDoc = JsonDocument.Parse(jsonString);
+				JsonElement variants = jsonDoc.RootElement.GetProperty("question").GetProperty("variants");
+
+				foreach (JsonElement variant in variants.EnumerateArray())
 				{
-					string? correctAnswer = variant.GetProperty("value").GetString();
+					if (variant.GetProperty("is_right").GetInt32() == 1)
+					{
+						string? correctAnswer = variant.GetProperty("value").GetString();
 
-					if (correctAnswer == null)
+						if (correctAnswer == null)
+							return;
+
+						Console.WriteLine(correctAnswer);
+
+						currentMasage = correctAnswer;
+
 						return;
-
-					Console.WriteLine(correctAnswer);
-
-					currentMasage = correctAnswer;
-
-					return; 
+					}
 				}
-			}
 
-			currentMasage = "Правильный ответ не найден.";
-			Console.WriteLine("Правильный ответ не найден.");
+				currentMasage = "Правильный ответ не найден.";
+				Console.WriteLine("Правильный ответ не найден.");
 
+				/*ProcessStartInfo consolleInfo = new ProcessStartInfo()
+				{
+					FileName = "cmd.exe",
+					Arguments = $"/k cd \\ & cd {pathToBat} & start start_python_di_hash.bat --\"{hash}\"",
+					UseShellExecute = true,
+					CreateNoWindow = true,
+					WindowStyle = ProcessWindowStyle.Minimized
+				};
 
-			/*ProcessStartInfo consolleInfo = new ProcessStartInfo()
+				consolle = Process.Start(consolleInfo); */
+			} 
+			catch (Exception e)
 			{
-				FileName = "cmd.exe",
-				Arguments = $"/k cd \\ & cd {pathToBat} & start start_python_di_hash.bat --\"{hash}\"",
-				UseShellExecute = true,
-				CreateNoWindow = true,
-				WindowStyle = ProcessWindowStyle.Minimized
-			};
-
-			consolle = Process.Start(consolleInfo); */
+				currentMasage = e.Message;
+			}
 
 		}
 
