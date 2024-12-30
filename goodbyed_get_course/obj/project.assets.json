@@ -229,7 +229,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sima\\.nuget\\packages\\": {}
+    "C:\\Users\\Sima\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\SharedProgramData\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
@@ -240,8 +241,12 @@
       "packagesPath": "C:\\Users\\Sima\\.nuget\\packages\\",
       "outputPath": "C:\\Study\\Гет курс кряк\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\SharedProgramData\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\Sima\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

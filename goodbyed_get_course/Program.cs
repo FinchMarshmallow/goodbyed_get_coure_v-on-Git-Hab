@@ -277,11 +277,7 @@ namespace goodbyed_get_course
 				Console.WriteLine($"unescapeHash: \n{unescapeHash}\n");
 
 
-				string jsonString = Regex.Unescape(unescapeHash);
-
-				Console.WriteLine($"decryptedString: \n{jsonString}\n");
-
-				JsonDocument jsonDoc = JsonDocument.Parse(jsonString);
+				JsonDocument jsonDoc = JsonDocument.Parse(unescapeHash);
 				JsonElement variants = jsonDoc.RootElement.GetProperty("question").GetProperty("variants");
 
 				currentMasage = "";
@@ -290,12 +286,17 @@ namespace goodbyed_get_course
 				{
 					if (variant.GetProperty("is_right").GetInt32() == 1)
 					{
-						string? correctAnswer = variant.GetProperty("value").GetString();
+						string? jsontAnswer = variant.GetProperty("value").GetString();
 
-						if (correctAnswer == null)
+						if (jsontAnswer == null)
 							return;
-						Console.WriteLine(correctAnswer);
-						currentMasage += correctAnswer + "\n";
+
+						string jsonString = Regex.Unescape(jsontAnswer);
+
+						Console.WriteLine($"decryptedString: \n{jsonString}\n");
+
+						Console.WriteLine(jsonString);
+						currentMasage += jsonString + "\n";
 					}
 				}
 
