@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Study\\Гет курс кряк\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\goodbyed_get_course.csproj": {}
+    "C:\\Users\\Sima\\Desktop\\goodbyed_get_coure_v-on-Git-Hab-main\\goodbyed_get_course\\goodbyed_get_course.csproj": {}
   },
   "projects": {
-    "C:\\Study\\Гет курс кряк\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\goodbyed_get_course.csproj": {
+    "C:\\Users\\Sima\\Desktop\\goodbyed_get_coure_v-on-Git-Hab-main\\goodbyed_get_course\\goodbyed_get_course.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Study\\Гет курс кряк\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\goodbyed_get_course.csproj",
+        "projectUniqueName": "C:\\Users\\Sima\\Desktop\\goodbyed_get_coure_v-on-Git-Hab-main\\goodbyed_get_course\\goodbyed_get_course.csproj",
         "projectName": "goodbyed_get_course",
-        "projectPath": "C:\\Study\\Гет курс кряк\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\goodbyed_get_course.csproj",
+        "projectPath": "C:\\Users\\Sima\\Desktop\\goodbyed_get_coure_v-on-Git-Hab-main\\goodbyed_get_course\\goodbyed_get_course.csproj",
         "packagesPath": "C:\\Users\\Sima\\.nuget\\packages\\",
-        "outputPath": "C:\\Study\\Гет курс кряк\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\obj\\",
+        "outputPath": "C:\\Users\\Sima\\Desktop\\goodbyed_get_coure_v-on-Git-Hab-main\\goodbyed_get_course\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\SharedProgramData\\NuGetPackages"
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -65,6 +65,10 @@
             "System.Management": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[9.0.5, )"
             }
           },
           "imports": [
@@ -78,12 +82,31 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
+              "version": "[8.0.14, 8.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[8.0.14, 8.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.linux-x64",
+              "version": "[8.0.14, 8.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
         }
       }
     }

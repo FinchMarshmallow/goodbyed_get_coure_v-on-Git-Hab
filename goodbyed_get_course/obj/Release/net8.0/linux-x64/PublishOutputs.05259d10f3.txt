@@ -1,0 +1,5 @@
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\out\goodbyed_get_course.pdb
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\out\selenium-manager\linux\selenium-manager
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\out\selenium-manager\macos\selenium-manager
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\out\selenium-manager\windows\selenium-manager.exe
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\out\goodbyed_get_course

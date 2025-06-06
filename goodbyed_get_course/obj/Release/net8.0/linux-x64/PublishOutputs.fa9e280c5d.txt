@@ -1,0 +1,15 @@
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\goodbyed_get_course
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\selenium-manager\linux\selenium-manager
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\selenium-manager\macos\selenium-manager
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\selenium-manager\windows\selenium-manager.exe
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\goodbyed_get_course.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\goodbyed_get_course.deps.json
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\goodbyed_get_course.runtimeconfig.json
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\goodbyed_get_course.pdb
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\Newtonsoft.Json.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\WebDriver.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\System.CodeDom.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\System.IO.Pipelines.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\System.Management.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\System.Text.Encodings.Web.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\publish\System.Text.Json.dll

@@ -1,26 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\",
+  "WorkspaceRootPath": "C:\\Users\\Sima\\Desktop\\goodbyed_get_coure_v-on-Git-Hab-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DF370E9D-8836-450C-8B12-25874FB4F06B}|goodbyed_get_course\\goodbyed_get_course.csproj|c:\\study\\\u0433\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on git hab\\goodbyed_get_course\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DF370E9D-8836-450C-8B12-25874FB4F06B}|goodbyed_get_course\\goodbyed_get_course.csproj|c:\\users\\sima\\desktop\\goodbyed_get_coure_v-on-git-hab-main\\goodbyed_get_course\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF370E9D-8836-450C-8B12-25874FB4F06B}|goodbyed_get_course\\goodbyed_get_course.csproj|solutionrelative:goodbyed_get_course\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}|,   b e g i n   \u011F\u011F\u011F\u011F8 !     \u0022     ",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}|,   b e g i n   \u011F\u011F\u011F\u011F8 !     \u0022     "
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\START_.bat||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:START_.bat||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+      "AbsoluteMoniker": "D:0:0:{DF370E9D-8836-450C-8B12-25874FB4F06B}|goodbyed_get_course\\goodbyed_get_course.csproj|c:\\users\\sima\\desktop\\goodbyed_get_coure_v-on-git-hab-main\\goodbyed_get_course\\goodbyed_get_course.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DF370E9D-8836-450C-8B12-25874FB4F06B}|goodbyed_get_course\\goodbyed_get_course.csproj|solutionrelative:goodbyed_get_course\\goodbyed_get_course.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,66 +18,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 895,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "goodbyed_get_course.dll - 1 [Neutral] - RCDATA",
-              "DocumentMoniker": "C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll",
-              "RelativeDocumentMoniker": "goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll",
-              "ToolTip": "C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll - 1 [Neutral] - RCDATA",
-              "RelativeToolTip": "goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll - 1 [Neutral] - RCDATA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001697|",
-              "WhenOpened": "2024-12-30T09:56:28.769Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "goodbyed_get_course.dll",
-              "DocumentMoniker": "C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll",
-              "RelativeDocumentMoniker": "goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll",
-              "ToolTip": "C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll",
-              "RelativeToolTip": "goodbyed_get_course\\obj\\Release\\net8.0\\ref\\goodbyed_get_course.dll",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001697|",
-              "WhenOpened": "2024-12-30T09:56:22.172Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "START_.bat",
-              "DocumentMoniker": "C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\START_.bat",
-              "RelativeDocumentMoniker": "START_.bat",
-              "ToolTip": "C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\START_.bat",
-              "RelativeToolTip": "START_.bat",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000614|",
-              "WhenOpened": "2024-12-30T09:34:32.888Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "README.md",
-              "DocumentMoniker": "C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\README.md",
-              "RelativeDocumentMoniker": "README.md",
-              "ToolTip": "C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\README.md",
-              "RelativeToolTip": "README.md",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2024-12-30T09:34:28.735Z"
+              "$type": "Bookmark",
+              "Name": "ST:659955186:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Sima\\Desktop\\goodbyed_get_coure_v-on-Git-Hab-main\\goodbyed_get_course\\Program.cs",
               "RelativeDocumentMoniker": "goodbyed_get_course\\Program.cs",
-              "ToolTip": "C:\\Study\\\u0413\u0435\u0442 \u043A\u0443\u0440\u0441 \u043A\u0440\u044F\u043A\\goodbyed_get_coure_v on Git Hab\\goodbyed_get_course\\Program.cs",
+              "ToolTip": "C:\\Users\\Sima\\Desktop\\goodbyed_get_coure_v-on-Git-Hab-main\\goodbyed_get_course\\Program.cs",
               "RelativeToolTip": "goodbyed_get_course\\Program.cs",
-              "ViewState": "AQIAABABAAAAAAAAAAAowGcBAAAAAAAA",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAYwIwAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T09:18:34.522Z",
+              "WhenOpened": "2025-06-06T12:25:07.091Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "goodbyed_get_course.csproj",
+              "DocumentMoniker": "C:\\Users\\Sima\\Desktop\\goodbyed_get_coure_v-on-Git-Hab-main\\goodbyed_get_course\\goodbyed_get_course.csproj",
+              "RelativeDocumentMoniker": "goodbyed_get_course\\goodbyed_get_course.csproj",
+              "ToolTip": "C:\\Users\\Sima\\Desktop\\goodbyed_get_coure_v-on-Git-Hab-main\\goodbyed_get_course\\goodbyed_get_course.csproj",
+              "RelativeToolTip": "goodbyed_get_course\\goodbyed_get_course.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-06T12:05:19.771Z"
             }
           ]
         }

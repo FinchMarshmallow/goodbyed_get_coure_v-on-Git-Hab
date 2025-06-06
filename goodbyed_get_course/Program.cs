@@ -1,18 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.DevTools;
-using System.IO;
 using System.Text;
-
-using System;
 using System.Text.RegularExpressions;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Text.Json;
-using System.Threading.Channels;
+using System;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace goodbyed_get_course
 {
@@ -26,6 +21,8 @@ namespace goodbyed_get_course
 		//private static string? pathToBat = null;
 
 		private static Process? consolle = null;
+
+		private static ChromeDriver? driver;
 
 		public static string icons = "@#$%&*+=-";
 
@@ -44,57 +41,43 @@ namespace goodbyed_get_course
 
 			Console.Clear();
 
-			/* SetConsoleColors(ConsoleColor.Magenta, ConsoleColor.Cyan);
-
-			ResetConsoleColors();
-
-			pathToBat = pathToBat.Replace("goodbyed_get_course\\bin\\Debug\\net8.0", "PYBNCD\\BNCD1");
-			
-			pathToBat =
-				pathToBat.Substring(
-					0,
-					pathToBat.LastIndexOf(
-						"goodbyed_get_coure_v on Git Hab")) +
-					"goodbyed_get_coure_v on Git Hab\\PYBNCD\\BNCD1";
-
-
-			while (!File.Exists(pathToBat + "\\start_python_di_hash.bat"))
-			{
-				SetConsoleColors(ConsoleColor.DarkRed, ConsoleColor.White);
-				Console.WriteLine("path to not found !, please enter path to:");
-			
-				SetConsoleColors(ConsoleColor.DarkYellow, ConsoleColor.White);
-				Console.Write(" start_python_di_hash.bat:");
-			
-				ResetConsoleColors();
-				Console.Write("  ");
-			
-				pathToBat = Console.ReadLine();
-			
-				SetConsoleColors(ConsoleColor.DarkCyan, ConsoleColor.Magenta);
-				Console.WriteLine(pathToBat + "\\start_python_di_hash.bat");
-			
-				ResetConsoleColors();
-			}
-
-			Console.WriteLine("Local path: " + pathToBat);
-			Console.WriteLine();
-
-			ResetConsoleColors(); */
-
 			string userName = GetUserName();
 
 			if (!StartDriver(userName))
 				return;
 
-			Loading();
+			await Task.Run(() => Loading());
+
+
+
 
 			ChromeOptions options = new ChromeOptions();
 			options.SetLoggingPreference(LogType.Browser, LogLevel.All);
-			options.AddArgument("w3c:false");
 			options.DebuggerAddress = "localhost:9222";
-			
-			var driver = new ChromeDriver(options);
+
+			// отключение фоток
+			//string defProfile = "profile.default_content_setting_values.";
+			//options.AddUserProfilePreference($"{defProfile}images", 2);
+
+			//options.AddUserProfilePreference("profile.default_content_setting_values.images", 2);
+
+
+			//options.AddArgument("--blink-settings=imagesEnabled=false");
+			//options.AddArgument("--disable-images");
+
+			options.AddArguments
+			([
+				"--headless=new",          // Фоновый режим без GUI
+				//"--disable-gpu",           // Отключение GPU
+				"--no-sandbox",            // Отключение песочницы
+				"--disable-dev-shm-usage", // Фикс для ограниченной памяти
+				"--disable-extensions",    // Отключение расширений
+				"--ignore-certificate-errors",
+				"--disable-images",
+				"--blink-settings=imagesEnabled=false"
+			]);
+
+			driver = new ChromeDriver(options);
 			driver.Navigate().GoToUrl("https://irbis-edu.getcourse.ru/teach/control/stream/index");
 
 			NetworkRequestHandler requestHandler = new NetworkRequestHandler();
@@ -107,10 +90,9 @@ namespace goodbyed_get_course
 			DevToolsSession session = IDevTools.GetDevToolsSession();
 
 			INetwork networkInterceptor = driver.Manage().Network;
-			await networkInterceptor.StartMonitoring();
 
 			networkInterceptor.AddRequestHandler(requestHandler);
-			await networkInterceptor.StartMonitoring();
+			await networkInterceptor.StartMonitoring().ConfigureAwait(false);
 
 
 			var domains = session.GetVersionSpecificDomains<DevToolsSessionDomains>();
@@ -118,22 +100,24 @@ namespace goodbyed_get_course
 
 			Task enableNetwork = network.EnableNetwork();
 			Task networkCaching = network.EnableNetworkCaching();
-			enableNetwork.Wait();
-			networkCaching.Wait();
+
+			await enableNetwork;
+			await networkCaching;
 
 
 			NetworkManager manager = new NetworkManager(driver);
-			networkInterceptor.NetworkResponseReceived += async (object sender, NetworkResponseReceivedEventArgs e) =>
+			networkInterceptor.NetworkResponseReceived += (sender, e) =>
 			{
-				await ChekResponseBody(e.ResponseBody);
+				if (e != null && e.ResponseBody != null && e.ResponseUrl != null && e.ResponseBody.Length > 15 && e.ResponseUrl.Contains("/pl/teach/questionary-public/testing"))
+				{
+					Task.Run(() => ChekResponseBody(e.ResponseBody));
+				}
 			};
 
 			Task monitoring = manager.StartMonitoring();
-			monitoring.Wait();
+			await monitoring;
 
 			Console.ReadLine();
-
-			while (true) { }
 		}
 
 		private static string GetUserName()
@@ -227,13 +211,13 @@ namespace goodbyed_get_course
 
 				ResetConsoleColors();
 
-				if(consolle != null)
+				if (consolle != null)
 				{
 					Console.Write("    " + consolle.ToString());
 				}
 
 				await Task.Delay(800);
-				
+
 				time++;
 			}
 		}
@@ -241,15 +225,22 @@ namespace goodbyed_get_course
 
 		private static async Task ChekResponseBody(string body)
 		{
-			if (body == null || body == "" || !(body.Length >= 15) || !(body.IndexOf(@"""resultHash"":", StringComparison.Ordinal) >= 0)) return;
+			Console.WriteLine(body);
 
-			SetConsoleColors(ConsoleColor.DarkGreen, ConsoleColor.Green);
+			await Task.Run(() =>
+			{
+				if (!(body.IndexOf(@"""resultHash"":", StringComparison.Ordinal) >= 0)) return;
 
-			Console.WriteLine($":\n {body} \n:");
+				SetConsoleColors(ConsoleColor.DarkGreen, ConsoleColor.Green);
 
-			ResetConsoleColors();
+				Console.WriteLine($":\n {body} \n:");
 
-			NewWindows(body);
+				ResetConsoleColors();
+
+				NewWindows(body);
+
+				//currentMasage = body;
+			});
 		}
 
 		private static void NewWindows(string body)
@@ -297,20 +288,11 @@ namespace goodbyed_get_course
 
 						Console.WriteLine(jsonString);
 						currentMasage += jsonString + "\n";
+
+						PaintingButton(jsonString);
 					}
 				}
-
-				/*ProcessStartInfo consolleInfo = new ProcessStartInfo()
-				{
-					FileName = "cmd.exe",
-					Arguments = $"/k cd \\ & cd {pathToBat} & start start_python_di_hash.bat --\"{hash}\"",
-					UseShellExecute = true,
-					CreateNoWindow = true,
-					WindowStyle = ProcessWindowStyle.Minimized
-				};
-
-				consolle = Process.Start(consolleInfo); */
-			} 
+			}
 			catch (Exception e)
 			{
 				currentMasage = e.Message;
@@ -318,36 +300,87 @@ namespace goodbyed_get_course
 
 		}
 
-		private static void KillPhytonWindows()
+		private static void PaintingButton(string targetValue)
 		{
-			Process[] pythonProcesses = Process.GetProcessesByName("python");
+			const string targetClass = "btn btn-default btn-mark-variant js__btn-variant";
 
-			KillProcess(pythonProcesses);
+			string script = @"
+			var elements = document.querySelectorAll('button, input[type=""button""]');
+				
+			for (var i = 0; i < elements.length; i++) {{
+				var element = elements[i];
+				
+				var value = element.getAttribute('value');
+				var classes = element.getAttribute('class') || '';
+				console.log('"+targetValue+@"')
 
-			/*pythonProcesses = Process.GetProcessesByName("goodbyed_get_course");
+				if (classes === '"+targetClass+@"' && element.outerHTML.includes('data-value="""+targetValue+@"""')) {{
+					element.style.cssText = `
+						background-color: #83c7a4 !important;
+						color: white !important;
+						border: none !important;
+						padding: 5px 10px !important;
+						border-radius: 4px !important;
+						box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+					`;
+				
+					console.log('Element:', element.outerHTML);
+					console.log('Class:', classes);
+					console.log('Value:', value);
+					console.log('-------------------');
+				}}
+			}}
+			";
+			//element.toString().includes('data-value=" + targetValue + @"') && 
+			//var classes = element.getAttribute('class') || '';
+			//var id = element.getAttribute('id') || '';
 
-			KillProcess(pythonProcesses);*/
-		}
+			//			var elements = document.querySelectorAll('button, input[type=""button""]');
 
-		private static void KillProcess(Process[] pythonProcesses)
-		{
-			foreach (var process in pythonProcesses)
+			//			for (var i = 0; i < elements.length; i++)
+			//			{
+			//				var element = elements[i];
+
+			//				var value = element.getAttribute('value');
+			//				var classes = element.getAttribute('class') || '';
+			//				var id = element.getAttribute('id') || '';
+
+			//				console.log('Element:', element);
+			//				console.log('Tag:', element.tagName);
+			//				console.log('Class:', classes);
+			//				console.log('ID:', id);
+			//				console.log('Value:', value);
+			//				console.log('-------------------');
+
+			//				if (value === ' targetValue')
+			//				{
+			//					element.style.cssText = `
+			//            background - color: #58875e !important;
+			//            color: white!important;
+			//				border: none!important;
+			//				padding: 5px 10px!important;
+			//					border - radius: 4px!important;
+			//					box - shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+			//        `;
+			//			break;
+			//		}
+			//}
+
+
+			// Выполнить скрипт
+			if (driver is IJavaScriptExecutor js == false)
 			{
-				try
-				{
-					SetConsoleColors(ConsoleColor.Yellow, ConsoleColor.DarkBlue);
-					Console.Write($"kill process: id: {process.Id} name: {process.ProcessName} st: {process.ToString}");
-					ResetConsoleColors();
+				return;
+			}
 
-					process.Kill();
-					process.WaitForExit();
-				}
-				catch (Exception ex)
-				{
-					SetConsoleColors(ConsoleColor.DarkRed, ConsoleColor.Red);
-					Console.WriteLine($"Eror: close python: {ex.Message}");
-					ResetConsoleColors();
-				}
+			try
+			{
+				var result = js.ExecuteScript(script);
+				Console.WriteLine($"JavaScript выполнен: {result}");
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Ошибка при выполнении скрипта: {ex.Message}");
 			}
 		}
 

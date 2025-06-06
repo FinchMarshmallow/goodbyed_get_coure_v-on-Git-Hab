@@ -1,25 +1,28 @@
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\selenium-manager\linux\selenium-manager
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\selenium-manager\macos\selenium-manager
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\selenium-manager\windows\selenium-manager.exe
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\goodbyed_get_course.exe
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\goodbyed_get_course.deps.json
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\goodbyed_get_course.runtimeconfig.json
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\goodbyed_get_course.dll
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\goodbyed_get_course.pdb
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\WebDriver.dll
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\System.CodeDom.dll
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\System.Management.dll
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\runtimes\win\lib\net8.0\System.Management.dll
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.csproj.AssemblyReference.cache
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.GeneratedMSBuildEditorConfig.editorconfig
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.AssemblyInfoInputs.cache
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.AssemblyInfo.cs
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.csproj.CoreCompileInputs.cache
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.sourcelink.json
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\goodbyed.4734A5C2.Up2Date
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.dll
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\refint\goodbyed_get_course.dll
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.pdb
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.genruntimeconfig.cache
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\obj\Release\net8.0\ref\goodbyed_get_course.dll
-C:\Study\Гет курс кряк\goodbyed_get_coure_v on Git Hab\goodbyed_get_course\bin\Release\net8.0\Newtonsoft.Json.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.csproj.AssemblyReference.cache
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.AssemblyInfoInputs.cache
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.AssemblyInfo.cs
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.csproj.CoreCompileInputs.cache
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\selenium-manager\linux\selenium-manager
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\selenium-manager\macos\selenium-manager
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\selenium-manager\windows\selenium-manager.exe
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\goodbyed_get_course.exe
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\goodbyed_get_course.deps.json
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\goodbyed_get_course.runtimeconfig.json
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\goodbyed_get_course.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\goodbyed_get_course.pdb
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\Newtonsoft.Json.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\WebDriver.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\System.CodeDom.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\System.IO.Pipelines.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\System.Management.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\System.Text.Encodings.Web.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\System.Text.Json.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\runtimes\win\lib\net8.0\System.Management.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\bin\Release\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\obj\Release\net8.0\goodbyed.4734A5C2.Up2Date
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\obj\Release\net8.0\refint\goodbyed_get_course.dll
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.pdb
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\obj\Release\net8.0\goodbyed_get_course.genruntimeconfig.cache
+C:\Users\Sima\Desktop\goodbyed_get_coure_v-on-Git-Hab-main\goodbyed_get_course\obj\Release\net8.0\ref\goodbyed_get_course.dll
